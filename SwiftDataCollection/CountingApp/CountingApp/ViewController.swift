@@ -16,19 +16,26 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var DidFinishLaunchingLabel: UILabel!
+    var finishLaunchCount = 0
     
     @IBOutlet weak var ConfigurationForConnectingLabel: UILabel!
+    var configurationForConnectingCount = 0
     
     @IBOutlet weak var WillConnectToOptionsLabel: UILabel!
-
+    var willConnectToOptionsCount = 0
+    
     @IBOutlet weak var DidBecomeActiveLabel: UILabel!
+    var didBecomeActiveCount = 0
     
     @IBOutlet weak var WillResignActiveLabel: UILabel!
-
+    var willResignActiveCount = 0
+    
     @IBOutlet weak var WillEnterActiveLabel: UILabel!
+    var willEnterActiveCount = 0
     
     @IBOutlet weak var WillEnterForegroundLabel: UILabel!
-
-    @IBOutlet weak var DidEnterBackgroundLabel: UILabel!
+    var willEnterForegroundCount = 0
     
+    @IBOutlet weak var DidEnterBackgroundLabel: UILabel!
+    var didEnterBackgroundCount = 0
 }

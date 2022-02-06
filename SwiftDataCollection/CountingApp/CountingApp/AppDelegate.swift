@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    var appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+    // This will allow you to access AppDelegate and your count variables within ViewController. Your AppDelegate instance is known as a singleton and can be accessed in this manner. Since you know what the type is, you can safely downcast it using as! AppDelegate.
+    
 }
 
