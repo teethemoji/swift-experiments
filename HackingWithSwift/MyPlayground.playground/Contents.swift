@@ -208,3 +208,206 @@ var style = UIStyle.light
 var arrayOfStrings = Set(["My", "Me", "Mine"])
 
 var numberOfStringsThatStartsWithM = arrayOfStrings.count
+
+// How to check a condition is true or false
+var someCondition = true
+
+if someCondition {
+    print("Do something")
+    print("Do something else")
+    print("Do a third thing")
+}
+
+if 100 > 0 {
+    print("Of course 100 is bigger than 0")
+}
+
+var userID = "KiriCreamCheese"
+// If `userID` contains an empty string
+if userID == "" {
+    // Make it equal to "Anonymous"
+    userID = "Anonymous"
+}
+// Now print a welcome message
+print("Welcome, \(userID)!")
+
+// Or you could do
+if userID.isEmpty == true {
+    userID = "Anonymous"
+}
+
+var isLoggedIn = true
+
+if isLoggedIn && !userID.isEmpty {
+    print("You need to log in to proceed")
+}
+
+enum TransportOption {
+    case airplane, helicopter, bicycle, car, scooter
+}
+
+let transport = TransportOption.airplane
+
+if transport == .airplane || transport == .helicopter {
+    print("Let's fly!")
+} else if transport == .bicycle {
+    print("I hope there's a bike path...")
+} else if transport == .car {
+    print("Time to get stuck in traffic.")
+} else {
+    print("I'm going to hire a scooter now!")
+}
+
+// How to use switch statements to check multiple conditions
+enum Weather {
+    case sun, rain, wind, snow, cloud, unknown
+}
+
+let forecast = Weather.sun
+
+switch forecast {
+case .sun:
+    print("It should be a nice day.")
+case .rain:
+    print("Pack an umbrella.")
+case .wind:
+    print("Wear something warm")
+case .snow:
+    print("School is cancelled.")
+case .unknown:
+    print("Our forecast generator is broken!")
+default:
+    print("Hmm...")
+}
+
+// The Twelve Days of Christmas
+
+let theDay = 5
+print("My true love gave to me...")
+
+switch theDay {
+case 5:
+    print("5 golden rings")
+    fallthrough
+case 4:
+    print("4 calling birds")
+    fallthrough
+case 3:
+    print("3 French hens")
+    fallthrough
+case 2:
+    print("2 turtle doves")
+    fallthrough
+default:
+    print("A patridge in a pear tree")
+}
+
+// Swift checks its cases in order and runs the first one that matches. If you place default before any other case, that case is useless because it will never be matched and Swift will refuse to build your code
+// If you explicitly want Swift to carry on executing subsequent cases, use falthrough. This is not commonly used, but sometimes - just sometimes - it can help you avoid repeating work.
+
+// How to use the ternary conditional operator for quick tests
+
+var myAge = 18
+let canVote = myAge >= 18 ? "Yes" : "No"
+// When code runs, canVote will be set to "Yes" because age is set to 18
+
+let hour = 23
+print(hour < 12 ? "It's before noon" : "It's after noon")
+
+let crewMember = ["Jayne", "Kaylee", "Mal"]
+let crewCount = crewMember.isEmpty ? "No one" : "\(crewMember.count) people"
+print(crewCount)
+ 
+enum ColorTheme {
+    case light, dark
+}
+
+let colorTheme = ColorTheme.dark
+
+let backgroundColor = colorTheme == .dark ? "black" : "white"
+print(backgroundColor)
+
+// How to use a for loop to repeat work
+let platforms = ["iOS", "macOS", "tvOS", "watchOS"]
+
+for os in platforms {
+    print("Swift works great on \(os).")
+}
+// 'os' could be 'rubberChicken', 'name' ... anything.
+
+for i in 1...12 {
+    print("5 X \(i) is \(5 * i)")
+}
+// for(int i = 1; i <= 12; i++)
+// 1부터 12까지! 반복!
+
+// Swift has a similar but different type of range that counts up to but excluding the final number: ..<
+for i in 1...5 {
+    print("Counting from 1 through 5: \(i)")
+}
+
+for i in 1..<5 {
+    print("Counting 1 up to 5: \(i)")
+}
+
+for num in 0..<platforms.count {
+    print(platforms[num])
+}
+// 이런 식으로 array에 쓰기 적합하다
+
+var ShakeItOffLyric = "Haters gonna"
+
+for _ in 1...5 {
+    ShakeItOffLyric += " hate"
+}
+
+var countdown = 10
+
+while countdown > 0 {
+    print("\(countdown)")
+    countdown -= 1
+}
+print("Blast off!")
+
+let randomID = Int.random(in: 1...1000)
+let amount = Double.random(in: 0...1)
+
+let filenames = ["me.jpg", "work.txt", "capture.jpg", "logo.psd"]
+
+for filename in filenames {
+    if filename.hasSuffix(".jpg") == false {
+        continue
+    }
+    print("Found picture: \(filename)")
+}
+
+let number1 = 4
+let number2 = 14
+var multiples = [Int]()
+
+for i in 1...100_000 {
+    if i.isMultiple(of: number1) && i.isMultiple(of: number2) {
+        multiples.append(i)
+        
+        if multiples.count == 10 {
+            break
+        }
+    }
+}
+print(multiples)
+
+// Summary: Conditions and loops
+// Checkpoint3
+
+// fizz buzz
+for i in 1...100 {
+    if i.isMultiple(of: 3) && i.isMultiple(of: 5) {
+        print("FizzBuzz")
+    } else if i.isMultiple(of: 3) {
+        print("Fizz")
+    } else if i.isMultiple(of: 5) {
+        print("Buzz")
+    } else {
+        print(i)
+    }
+}
