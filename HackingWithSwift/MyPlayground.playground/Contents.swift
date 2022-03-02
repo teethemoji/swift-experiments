@@ -94,3 +94,117 @@ let temperatureF = ((temperatureC * 9) / 5) + 32
 
 // Print the result for the user, show both Celsius and Fahrenheit values.
 print("Celsius -> \(temperatureC)°\nFahrenheit -> \(temperatureF)°F")
+
+// How to store ordered data in arrays
+
+var fruits          = ["Apple", "Blueberry", "Orange", "Lemon"]
+let numbers         = [4, 6, 12, 16, 24]
+var temperatures    = [25.3, 28.2, 26.4]
+
+print(fruits[0])
+print(numbers[1])
+print(temperatures[2])
+
+fruits.append("Strawberry")
+// numbers.append(32)
+temperatures.append(12.0)
+
+var albums = Array<String>()
+albums.append("A is Apple")
+albums.append("B is Bee")
+
+var songs = [String]()
+songs.append("1000 hours")
+songs.append("Still with you")
+
+print(albums.count)
+print(songs.count)
+
+let bondMovies = ["Casino Royale", "Spectre", "No Time To Die"]
+print(bondMovies.contains("Frozen"))
+// prints false
+
+let cities = ["London", "Seoul", "Tokyo", "Rome"]
+print(cities.sorted())
+// returns a new array with its items sorted in ascending order, which means alphabetically for strings but numerically for numbers - the original array remains unchanged
+
+let presidents = ["Bush", "Obama", "Trump", "Biden"]
+let reversedPresidents = presidents.reversed()
+print(reversedPresidents)
+
+// When you reverse an array, Swift is very clever - it doesn't actually do the work of rearranging all the items, but instead just remembers to itself that you want the items to be reversed. So, when you print out reversedPresidents, don't be surprised to see it's not just a simple array anymore!
+
+// How to store and find data in dictionaries
+
+let employee1 = [
+    "name"      : "Bob",
+    "job"       : "Builder",
+    "location"  : "California"
+]
+
+// Swift provides an alternative : when you access data inside a dictionary, it will tell us "you might get a value back, but you might get back nothing at all." Swift calls these optionals because the existence of data is optional - it might be there or it might not. Swift will even warn you when you write the code, albeit in a rather obscure way - it will say "Expression implicitly coerced from 'String?' to 'Any'", but it will really mean "this data might not actually be there - are you sure you want to print it?"
+
+// Optionals are a preetty complex issue that we'll be covering in detail later on, but for now I'll how you a simpler approach: when reading from a dictionary, you can provide a default value to use if the key doesn't exist.
+
+print(employee1["name", default: "Unknown"])
+print(employee1["job", default: "Unknown"])
+print(employee1["location", default: "Unknown"])
+
+var foodCombination = [String: String]()
+foodCombination["Pizza"] = "Coke"
+foodCombination["치킨"] = "맥주"
+foodCombination["매운떡볶이"] = "쿨피스"
+
+// How to use sets for fast data lookup
+
+// So far you've learned about two ways of collecting data in Swift: arrays and dictionaries. There is a thired very common way to group data, called a set - they are similar to arrays, except you can't add duplicate items, and they don't store their items in a particular order.
+// Creating a set works much like creating an array: tell Swift what kind of data it will store, then go ahead and add things. There are two important differences, though, and they are best demonstrated using some code.
+
+var famousPeople = Set(["Ariana", "Beyonce", "Katy"])
+
+// Notice how that actually creates an array first, then puts that array into the set? That's intentional, and it's the standard way of creating a set from fixed data. Remember, the set will automatically remove any duplicate values, and it won't remember the exact order that was used in the array.
+
+print(famousPeople)
+
+famousPeople.insert("Meryl")
+famousPeople.insert("Dua")
+
+// How to create and use enums
+
+enum Weekday {
+    case monday
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+}
+
+// enum Weekday {   case monday, tuesday, wednesday, thursday, friday   }도 가능합니다.
+
+var day = Weekday.tuesday
+day     = Weekday.monday
+day     = .friday
+
+// How to use type annotations
+let surname:    String      = "Lasso"
+var zero:       Int         = 0
+var numberZero: Double      = 0
+
+var user    : [String: String] = ["id": "@username"]
+var books   : Set<String> = Set(["The Bluest Eye", "Foundation", "Girl, Woman, Other"])
+var soda : [String] = ["Coke", "Pepsi", "Irn-Bru"]
+
+var teams = [String]()
+
+enum UIStyle {
+    case light, dark, system
+}
+
+var style = UIStyle.light
+
+// Checkpoint2
+// Create an array of strings, then write some code that prints the number of items in the array and also the number of unique items in the array.
+
+var arrayOfStrings = Set(["My", "Me", "Mine"])
+
+var numberOfStringsThatStartsWithM = arrayOfStrings.count
