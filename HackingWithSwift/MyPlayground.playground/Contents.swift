@@ -411,3 +411,257 @@ for i in 1...100 {
         print(i)
     }
 }
+
+// How to reuse code with functions
+
+let roll = Int.random(in: 1...20)
+
+func printTimesTables(number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+
+printTimesTables(number: 5)
+
+func printTimesTables(number: Int, end: Int) {
+    for i in 1...end {
+        print("\(i) x \(number) is \(i * number)")    }
+}
+
+printTimesTables(number: 5, end: 20)
+
+// parameter == placeholder
+// argument == actual value
+
+let root = sqrt(169)
+print(root)
+
+func rollDice() -> Int {
+    return Int.random(in: 1...6)
+}
+
+let result = rollDice()
+print(result)
+
+func areLettersIdentical(string1: String, string2: String) -> Bool {
+    let first = string1.sorted()
+    let second = string2.sorted()
+    return first == second
+}
+
+// 이걸 이렇게도 가능합니다
+
+func areLettersIdenticalVer2(string1: String, string2: String) -> Bool {
+    string1.sorted() == string2.sorted()
+}
+
+func rollDiceVer2() -> Int {
+    Int.random(in:1...6)
+}
+
+func pythagoras(a: Double, b: Double) -> Double {
+    let input = a * a + b * b
+    let root = sqrt(input)
+    return root
+}
+
+let LineC = pythagoras(a: 3, b: 4)
+print(LineC)
+
+// 더 단순한 코드로는
+func pythagorasVer2(a: Double, b: Double) -> Double {
+    sqrt(a * a + b * b)
+}
+
+// How to return multiple values from functions
+// If you want to return two or more values from a function, you could use an array. For example, here's one that sends back a user's details:
+func getUser() -> [String] {
+    ["Taylor", "Swift"]
+}
+
+let userData = getUser()
+print("Name: \(userData[0]) \(userData[1])")
+
+// That's problematic, because it's hard to remember what userData[0] and userData[1] are, and if ever adjust the data in that array then user[0] and user[1] could end up being something else or perhaps not existing at all.
+
+// We could use a dictionary instead, but that has its own problems:
+func getUserDictionary() -> [String: String] {
+    [
+        "firstName": "Taylor",
+        "lastName" : "Swift"
+    ]
+}
+
+let userData2 = getUserDictionary()
+print("Name: \(userData2["firstName", default: "Anonymous"]) \(userData2["lastName", default: "Nothing"])")
+
+// Like arrays, dictionaries, and sets, tuples let us put multiple pieces of data into a single variable, but unlike those other options tuples have a fixed size and can have a variety of data types.
+
+func getUserTuple() -> (firstName: String, lastName: String) {
+    (firstName: "Taylor", lastName: "Swift")
+}
+let userDataTuple = getUserTuple()
+print("Name: \(userDataTuple.firstName) \(userDataTuple.lastName)")
+
+// 이런 식으로도 가능
+
+func getUserTupleVer2() -> (String, String) {
+    ("Taylor", "Swift")
+}
+
+let userDataTupleVer2 = getUserTupleVer2()
+print("Name: \(userDataTupleVer2.0) \(userDataTupleVer2.1)")
+
+// How to customize parameter labels
+func rollDiceVer3(sides: Int, count: Int) -> [Int] {
+    // Start with an empty array
+    var rolls = [Int]()
+    
+    // Roll as many dice as needed
+    for _ in 1...count {
+        // Add each result to our array
+        let roll = Int.random(in: 1...sides)
+        rolls.append(roll)
+    }
+    
+    // Send back all the rolls
+    return rolls
+}
+
+let rolls = rollDiceVer3(sides: 6, count: 4)
+
+func hireEmployee(name: String) {}
+func hireEmployee(title: String) {}
+func hireEmployee(location: String) {}
+
+// Yes, those are all functions called hireEmployee(), but when you call them Swift knows which one you mean based on the parameter names you provide. To distinguish between the various options, it's very common to see documentation refer to each function including its parameters, like this: hireEmployee(name: ) or hireEmployee(title: ).
+
+// Sometimes, though, these parameter names are less helpful, and there are two ways I want to look at.
+// First, think about the hasPrefix() function you learned earlier:
+
+let lyricRed = "I see a red door and I want it painted black"
+print(lyricRed.hasPrefix("I see"))
+
+// When we call hasPrefix() we pass in the prefix to check for directly - we don't say hasPrefix(String: ) or, worse, hasPrefix(prefix: ). How come?
+// Well, when we're defining the parameters for a function we can actually add two names: one for use where the function is called, and one for use inside the function itself. hasPrefix() uses this to specify _ as the external name for its parameter, which is Swift's way of saying "ignore this" and causes there to be no external label for that parameter.
+// We can use the same technique in our own functions, if you think it reads better. For example, previously we had this function:
+func isUppercase(string: String) -> Bool {
+    string == string.uppercased()
+}
+
+let string = "HELLO, WORLD"
+let resultForString = isUppercase(string: string)
+
+// This is used a lot in Swift, such as with append() to add items to an array, or contains() to check whether an item is inside an array - in both places it's pretty evident what the parameter is without having a label too.
+
+// The second problem with external parameter names is when they aren't quite right - you want to have them, so _ isn't a good idea, but they just don't read naturally at the function's call site.
+// As an example, here's another function we looked at earlier:
+func printTimesTablesVer2(number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+printTimesTablesVer2(number: 5)
+// That code is valid Swift, and we could leave it alone as it is. But the call site doesn't read well: printTimesTables(number: 5). It would be much better like this:
+func printTimeTablesVer3(for: Int) {
+    for i in 1...12 {
+        print("\(i) x \(for) is \(i * for)")
+    }
+}
+// That reads much better at the call site - you can literally say "print times table for 5" aloud, and it makes sencse. But now we have invalid Swift: although for is allowed and reads great at the call site, it's not allowed inside the function.
+// You already saw how we can put _ before the parameter name so that we don't need to write an external parameter name. Well, the other option is to write a second name there: one to use externally, and one to use internally.
+func printTimeTablesVer4(for number: Int) {
+    for i in 1...12 {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+// There are three things in there you need to look at closely:
+// 1. We write for number: Int:the external name is for, the internal name is number, and it's of type Int.
+// 2. When we call the function we use the external name for the parameter: printTimesTables(for: 5)
+// 3. Inside the function we use the internal name for the parameter: print("\(i) x \(number) is \(i * number)")
+// So, Swift gives us two important ways to control parameter names: wecan use _ for the external parameter name so that it doesn't get used, or add a second name there so that we have both external and internal parameter names.
+// Tip: Earlier I mentioned that technically values you pass in to a function are called "arguments", and values you receive inside the function are call parameters. This is where things get a bit muddled, because now we have argumen labels and parameter names side by side, both in the function definition. Like I said, I'll be using the term "parameter" for both, and when the distinction matters you'll see I distinguish between them using "external parameter name" and "internal parameter name".
+
+// How to provide default values for parameters
+func printTimesTablesVer5(for number: Int, end: Int = 12) {
+    for i in 1...end {
+        print("\(i) x \(number) is \(i * number)")
+    }
+}
+// 이렇게 하면 printTimesTables(for: 8)이런식으로 end 값을 안 넘겨주어도 자동으로 12로 적용되어서 진행된다
+// How to handle erros in functions
+// Things go wrong all the time, such as when that file you wanted to read doesn't exist, or when that data you tried to download failed because the network was down. If we didn't handle errors gracefully then our code would crash, so Swift makes us handle erros - or at least acknowledge when they might happen.
+
+// This makes three steps:
+// 1. Telling Swift about the possible erros that can happen
+// 2. Writing a function that can flag up erros if they happeen.
+// 3. Calling that function, and handling any erros that might happen.
+
+enum PasswordError: Error {
+    case short, obvious
+}
+
+func checkPassword(_ password: String) throws -> String {
+    if password.count < 5 {
+        throw PasswordError.short
+    }
+    
+    if password == "12345" {
+        throw PasswordError.obvious
+    }
+    
+    if password.count < 8 {
+        return "OK"
+    } else if password.count < 10 {
+        return "Good"
+    } else {
+        return "Excellent"
+    }
+}
+
+// 1. If a function is able to throw errors without handling them itself, you must makr the function as throws before the return type.
+// 2. We don't specify exactly what kind of error is thrown by the function, just that it can throw errors.
+// 3. Being marked with throws does not mean the function must throw errors, only that it might.
+// 4. When it comes time to throw an error, we write throw followed by one of our PasswordError cases. This immediately exits the function, meaning that it won't return a string.
+// 5. If no errors are thrown, the function must behave like normal - it needs to return a string
+
+// The final step is to run the function and handle any erros that might happen. Swift Playgrounds are pretty lax about error handling because they are mostly meant for learning, but when it comes to working with real Swift projects you'll find there are three steps:
+// 1. Starting a block of work that might throw errors, using do.
+// 2. Calling one or more throwing functions, using try.
+// 3. Handling any thrown errors using catch.
+
+// In pseudocode, it looks like this:
+/*
+ do {
+    try someRiskyWork()
+} catch {
+    print("Handle errors here")
+}
+*/
+// If we wanted to write try that using our current checkPassword() function, we could write this:
+let randomString = "12345"
+
+do {
+    let randomResult = try checkPassword(string)
+    print("Password rating: \(randomResult)")
+} catch {
+    print("There was an error.")
+}
+
+// If the checkPassword() function works correctly, it will return a value into result, which is then printed out. But if any errors are thrown (which in this case there will be), the password rating message will never be printed - execution will immediately jump to the catch block.
+// There are a few different parts of that code that deserve discussion, but i want to focus on the most important one: try. This must be written before calling all functions that might throw erros, and is a visual signal to developers that regular code execution will be interrupted if an error happens.
+// When you use try, you need to be inside a do block, and make sure you have one or more catch blocks able to handle any erros. In some circumstances you can use an alternative written as try! which does not require do and catch, but will crash your code if an error is thrown - you should use this rarely, and only if you're absolutely sure an error cannot be thrown.
+// When it comes to catching errors, you must always have a catch block that is able to handle every kind of error. However, you can also catch specific erros as well, if you want:
+let someString = "12345"
+
+do {
+    let someResult = try checkPassword(string)
+    print("Password rating: \(someResult)")
+} catch PasswordError.short {
+    print("Please use a longer password.")
+} catch PasswordError.obvious {
+    print("I have the same combination on my luggage...")
+} catch {
+    print("There was an error.")
+}
