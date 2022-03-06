@@ -665,3 +665,9 @@ do {
 } catch {
     print("There was an error.")
 }
+
+// As you progress you'll see how throwing functions are baked into many of Apple's own frameworks, so even though you might not create them yourself much will at least need to know how to use them safely.
+// Tip: Most erros thrown by Apple provide a meaningful message that you can present to your user if needed. Swift makes this available using an error value that's automatically provided inside your catch block, and it's common to read error.localizedDescription to see exactly what happend.
+
+// Summary: Functions
+
