@@ -670,4 +670,59 @@ do {
 // Tip: Most erros thrown by Apple provide a meaningful message that you can present to your user if needed. Swift makes this available using an error value that's automatically provided inside your catch block, and it's common to read error.localizedDescription to see exactly what happend.
 
 // Summary: Functions
+// We've covered a lot about functions in the previous chapters, so let's recap:
+/*
+ - Functions let us reuse code easily by carving off chunks of code and giving it a name.
+ - All functions start with word func, followed by the function's name. The function's body is contained inside opening and closing braces.
+ - We can add parameters to make our functions more flexible - list them out one by one separated by commas: the name of the parameter, then a colon, then the type of the parameter.
+ - You can control how those parameter names are used externally, either by using a custom external parameter name or by using an underscore to disable the external name for that parameter.
+ - If you think there are certain parameter values you'll use repeatedly, you can make them have a default value so your function takes less code to write and does the smart thing by default.
+ - Functions can return a value if you want, but if you want to return multiple pieces of data from a function you should use tuple. These hold several named elements, but it's limited in a way a dictionary is not - you list each element specifically, along with its type.
+ - Functions can throw errors: you create an enum defining the errors you want to happen, throw those errors inside the function as needed, then use do, try, and catch to handle them at the call site.
+ */
+
+// Checkpoint 4
+/*
+ With functions under your belt, it's time to try a little coding challenge. Don't worry. it's not that hard. but it might take you a while to think about and come up wiht something. As always I'll be giving you some hints if you need them.
+ The challenge is this: write a function that accepts an interger from 1 through 10,000, and returns the integer square root of that number. That sounds easy, but there are some catches:
+ 1. You can't use Swift's built-in sqrt() function or similar - you need to find the square root yourself.
+ 2. If the number is less than 1 or greater than 10,000 you should throw an "out of bounds" error.
+ 3. You should only consider interger square roots - don't worry about the square root of being 1.732, for example.
+ 4. If you can't find the square root, throw a "no root" error.
+ As a reminder, if you have number X, the square root of X will be another number that, when multiplied by itself, gives X. So, the square root of 9 is 3, because 3x3 is 9, and the square root of 25 is 5, because 5x5 is 25
+ */
+
+enum sqrtFuncError: Error {
+    case outOfBound, noRoot
+}
+
+func findSquareRootOf(_ number: Int) throws -> Int {
+    
+    if (1 >= number) || (number >= 10000) {
+        throw sqrtFuncError.outOfBound
+    }
+    
+    for i in 1...100 {
+        if (number / i) == i {
+            return i
+        } else {
+            continue
+        }
+    }
+    
+    throw sqrtFuncError.noRoot
+}
+
+let sqrtNum = 100
+
+do {
+    let mySquareRoot = try findSquareRootOf(sqrtNum)
+    print("Square root of \(sqrtNum) is \(mySquareRoot)")
+} catch sqrtFuncError.outOfBound {
+    print("Please set the number between 1 and 10,000")
+} catch sqrtFuncError.noRoot {
+    print("Could not find square root of \(sqrtNum)")
+} catch {
+    print("Something is wrong...")
+}
 
