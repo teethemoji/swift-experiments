@@ -8,6 +8,8 @@
 import SwiftUI
 
 @main
+// putting "@main" means this will be our main scene
+
 struct MemorizeApp: App {
     var body: some Scene {
         WindowGroup {
