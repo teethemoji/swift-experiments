@@ -38,11 +38,11 @@ class ViewController: UIViewController {
         
         // MARK: - Load Scene
         // 1. Load .obj file
-        let scene = SCNScene(named: "blue_cube.obj")
+        let scene = SCNScene()
         
-        scene?.rootNode.addChildNode(self.leftCubeNode)
+        scene.rootNode.addChildNode(self.leftCubeNode)
         
-        scene?.rootNode.addChildNode(self.rightCubeNode)
+        scene.rootNode.addChildNode(self.rightCubeNode)
         
         self.leftCubeNode.position = SCNVector3(x: -2, y: 0, z: 0)
         self.rightCubeNode.position = SCNVector3(x: 2, y: 0, z: 0)
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 14)
         
         // 4. Set camera on scene
-        scene?.rootNode.addChildNode(cameraNode)
+        scene.rootNode.addChildNode(cameraNode)
         
         // MARK: - Set Environment
         
@@ -65,14 +65,14 @@ class ViewController: UIViewController {
         lightNode.light = SCNLight()
         lightNode.light?.type = .omni
         lightNode.position = SCNVector3(x: 0, y: 10, z: 35)
-        scene?.rootNode.addChildNode(lightNode)
+        scene.rootNode.addChildNode(lightNode)
         
         // 6. Add ambient light
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light?.type = .ambient
         ambientLightNode.light?.color = UIColor.darkGray
-        scene?.rootNode.addChildNode(ambientLightNode)
+        scene.rootNode.addChildNode(ambientLightNode)
         
         // 배경색 지정
         sceneView.backgroundColor = UIColor.white
