@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A430FC512981150F004A57EC /* ScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430FC502981150F004A57EC /* ScrollView+Extension.swift */; };
+		A430FC5329811A1B004A57EC /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A430FC5229811A1B004A57EC /* Text+Extension.swift */; };
+		A4410CC52982E22500284596 /* ScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4410CC42982E22500284596 /* ScrollView+Extension.swift */; };
 		A4C75F5328BB66D0008C14A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C75F5228BB66D0008C14A2 /* AppDelegate.swift */; };
 		A4C75F5528BB66D0008C14A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C75F5428BB66D0008C14A2 /* ViewController.swift */; };
 		A4C75F5728BB66D0008C14A2 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = A4C75F5628BB66D0008C14A2 /* Experience.rcproject */; };
@@ -14,9 +17,17 @@
 		A4C75F5C28BB66D2008C14A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4C75F5B28BB66D2008C14A2 /* Assets.xcassets */; };
 		A4C75F5F28BB66D2008C14A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4C75F5D28BB66D2008C14A2 /* LaunchScreen.storyboard */; };
 		A4C75F6728BB6B6D008C14A2 /* 3DObjectScene.scn in Resources */ = {isa = PBXBuildFile; fileRef = A4C75F6628BB6B6D008C14A2 /* 3DObjectScene.scn */; };
+		A4FE02E6297BDDCC007C9B85 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE02E5297BDDCC007C9B85 /* Book.swift */; };
+		A4FE02EB297E8C64007C9B85 /* BookCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE02EA297E8C64007C9B85 /* BookCardView.swift */; };
+		A4FE02ED29801AA5007C9B85 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE02EC29801AA5007C9B85 /* MainView.swift */; };
+		A4FE02EF29801B28007C9B85 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE02EE29801B28007C9B85 /* SettingView.swift */; };
+		A4FE02F129801E5B007C9B85 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FE02F029801E5B007C9B85 /* LibraryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A430FC502981150F004A57EC /* ScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Extension.swift"; sourceTree = "<group>"; };
+		A430FC5229811A1B004A57EC /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
+		A4410CC42982E22500284596 /* ScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+Extension.swift"; sourceTree = "<group>"; };
 		A4C75F4F28BB66D0008C14A2 /* ImageTrackAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageTrackAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4C75F5228BB66D0008C14A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A4C75F5428BB66D0008C14A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,6 +36,11 @@
 		A4C75F5B28BB66D2008C14A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4C75F5E28BB66D2008C14A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A4C75F6628BB6B6D008C14A2 /* 3DObjectScene.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = 3DObjectScene.scn; sourceTree = "<group>"; };
+		A4FE02E5297BDDCC007C9B85 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		A4FE02EA297E8C64007C9B85 /* BookCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCardView.swift; sourceTree = "<group>"; };
+		A4FE02EC29801AA5007C9B85 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A4FE02EE29801B28007C9B85 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		A4FE02F029801E5B007C9B85 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +54,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4410CC22982DFD000284596 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		A4410CC62982E23000284596 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A4410CC42982E22500284596 /* ScrollView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A4C75F4628BB66D0008C14A2 = {
 			isa = PBXGroup;
 			children = (
@@ -57,6 +88,9 @@
 		A4C75F5128BB66D0008C14A2 /* ImageTrackAR */ = {
 			isa = PBXGroup;
 			children = (
+				A4FE02E9297BDDF1007C9B85 /* Global */,
+				A4FE02E8297BDDEB007C9B85 /* Screen */,
+				A4FE02E7297BDDE4007C9B85 /* Model */,
 				A4C75F5228BB66D0008C14A2 /* AppDelegate.swift */,
 				A4C75F5428BB66D0008C14A2 /* ViewController.swift */,
 				A4C75F6528BB6B27008C14A2 /* Resources */,
@@ -74,6 +108,36 @@
 				A4C75F6628BB6B6D008C14A2 /* 3DObjectScene.scn */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A4FE02E7297BDDE4007C9B85 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE02E5297BDDCC007C9B85 /* Book.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A4FE02E8297BDDEB007C9B85 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A4FE02EC29801AA5007C9B85 /* MainView.swift */,
+				A4FE02EE29801B28007C9B85 /* SettingView.swift */,
+				A430FC5229811A1B004A57EC /* Text+Extension.swift */,
+				A4FE02F029801E5B007C9B85 /* LibraryView.swift */,
+				A430FC502981150F004A57EC /* ScrollView+Extension.swift */,
+				A4FE02EA297E8C64007C9B85 /* BookCardView.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		A4FE02E9297BDDF1007C9B85 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				A4410CC62982E23000284596 /* Extension */,
+				A4410CC22982DFD000284596 /* Resource */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +213,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4C75F5528BB66D0008C14A2 /* ViewController.swift in Sources */,
+				A4FE02ED29801AA5007C9B85 /* MainView.swift in Sources */,
+				A4FE02EB297E8C64007C9B85 /* BookCardView.swift in Sources */,
 				A4C75F5328BB66D0008C14A2 /* AppDelegate.swift in Sources */,
+				A4FE02F129801E5B007C9B85 /* LibraryView.swift in Sources */,
 				A4C75F5728BB66D0008C14A2 /* Experience.rcproject in Sources */,
+				A4FE02EF29801B28007C9B85 /* SettingView.swift in Sources */,
+				A430FC512981150F004A57EC /* ScrollView+Extension.swift in Sources */,
+				A4410CC52982E22500284596 /* ScrollView+Extension.swift in Sources */,
+				A430FC5329811A1B004A57EC /* Text+Extension.swift in Sources */,
+				A4FE02E6297BDDCC007C9B85 /* Book.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,14 +371,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9DAPT2N2P4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Well Tale";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,6 +388,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teethemoji.trackImage.ImageTrackAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -329,14 +406,16 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9DAPT2N2P4;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Well Tale";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +423,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teethemoji.trackImage.ImageTrackAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
