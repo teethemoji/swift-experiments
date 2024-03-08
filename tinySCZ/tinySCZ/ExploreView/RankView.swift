@@ -8,86 +8,128 @@
 import SwiftUI
 
 struct RankView: View {
+    
     var body: some View {
         
-        GeometryReader { geometry in
-            ScrollView {
-                VStack {
-                    RankHeaderView()
-                    RankCellView(rank: 1, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 2, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 3, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 4, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 5, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 6, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 7, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 8, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 9, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 10, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 11, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 12, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 13, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 14, frameHeight: geometry.size.height * 0.125)
-                    RankCellView(rank: 15, frameHeight: geometry.size.height * 0.125)
-                }
+        VStack {
+            
+            ForEach(1 ..< 4) { rank in
+                RankCellView(rank: rank, frameHeight: 88)
             }
+            
         }
     }
 }
 
+// MARK: RankHeaderView
 struct RankHeaderView: View {
-    var body: some View {
-        
-        HStack(spacing: 8) {
-            Text("Rank")
-                .font(.title)
-            
-            Spacer()
-            
-            // MARK: Sort Button
-            Button{
-                
-            } label: {
-                
-                HStack(spacing: 4) {
-                    Text("Download")
-                    Image(systemName: "chevron.down")
+    
+    // Capsule Button Ver.
+        var body: some View {
+    
+            HStack(alignment: .center, spacing: 4) {
+                Text("Most")
+                    .font(.title)
+                    .foregroundStyle(.secondary)
+    
+                Spacer()
+    
+                // MARK: Sort Button
+                Button{
+    
+                } label: {
+    
+                    HStack(spacing: 2) {
+                        Text("Download")
+                            .font(.subheadline)
+                            .padding(.horizontal, 2)
+                        
+                        Image(systemName: "chevron.down")
+                            .imageScale(.small)
+                    }
+                    .foregroundStyle(.gray)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Material.thick)
+                    .overlay{
+                        Capsule()
+                            .stroke(style: StrokeStyle(lineWidth: 1))
+                            .foregroundStyle(.white)
+                    }
+                    .clipShape(Capsule())
                 }
-                .foregroundStyle(.gray)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Material.thick)
-                .overlay{
-                    Capsule()
-                        .stroke(style: StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(.white)
+    
+                // MARK: Category Button
+    
+                Button {
+    
+                } label: {
+    
+                    HStack(spacing: 2) {
+                        Text("All")
+                            .font(.subheadline)
+                            .padding(.horizontal, 2)
+
+                        Image(systemName: "chevron.down")
+                            .imageScale(.small)
+    
+                    }
+                    .foregroundStyle(.gray)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Material.thick)
+                    .overlay{
+                        Capsule()
+                            .stroke(style: StrokeStyle(lineWidth: 1))
+                            .foregroundStyle(.white)
+                    }
+                    .clipShape(Capsule())
                 }
-                .clipShape(Capsule())
-            }
-            
-            // MARK: Category Button
-            
-            Button{
-                
-            } label: {
-                
-                HStack(spacing: 4) {
-                    Text("All")
-                    Image(systemName: "chevron.down")
-                }
-                .foregroundStyle(.gray)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background(Material.thick)
-                .overlay{
-                    Capsule()
-                        .stroke(style: StrokeStyle(lineWidth: 1))
-                        .foregroundStyle(.white)
-                }
-                .clipShape(Capsule())
             }
         }
-    }
+    
+    // Tappable Text Ver.
+//    var body: some View {
+//        
+//        HStack(spacing: 8) {
+//            
+//            HStack(alignment: .center) {
+//                
+//                // MARK: Sort Button
+//                Button {
+//                    
+//                } label: {
+//                    HStack(spacing: 4) {
+//                        Text("Downloaded")
+//                            .font(.title)
+//                            .foregroundStyle(Color("CharcoalGray"))
+//                            .underline()
+//                        Image(systemName: "chevron.down")
+//                            .foregroundStyle(Color("CharcoalGray"))
+//                        
+//                    }
+//                }
+//            }
+//            
+//            // MARK: Category Button
+//            Button {
+//                
+//            } label: {
+//                
+//                HStack(spacing: 4) {
+//                    Text("All")
+//                        .font(.title)
+//                        .foregroundStyle(Color("CharcoalGray"))
+//                        .underline()
+//                    Image(systemName: "chevron.down")
+//                        .foregroundStyle(Color("CharcoalGray"))
+//                    
+//                }
+//                
+//            }
+//            
+//        }
+//    }
 }
 
 struct RankCellView: View {
@@ -99,17 +141,25 @@ struct RankCellView: View {
         
         HStack {
             
-            HStack(alignment: .top) {
+            HStack(alignment: .center, spacing: 4) {
                 
-                RankSeal(rank: rank)
+//                RankSeal(rank: rank)
+//                    .scaleEffect(CGSize(width: 0.8, height: 0.8))
                 
                 // TODO : Switch to Image View
                 
-                RoundedRectangle(cornerRadius: 12.0)
-                    .frame(width: frameHeight * 1.25, height: frameHeight * 1.25)
-                    .foregroundStyle(.gray)
+                RoundedRectangle(cornerRadius: 20.0)
+                    .frame(width: frameHeight, height: frameHeight)
+                    .foregroundStyle(Color(.systemGray5))
+                    .overlay{
+                        Image(systemName: "app.fill")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 28, height: 28)
+                            .foregroundStyle(.white)
+                    }
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 0) {
                     Text("Shortcut")
                         .font(.title3)
                     Text("One-line description")
@@ -122,6 +172,7 @@ struct RankCellView: View {
                             Image(systemName: "arrow.down.to.line")
                                 .imageScale(.medium)
                             Text("0")
+                                .fontDesign(.rounded)
                         }
                         
                         HStack(spacing: 4) {
@@ -129,14 +180,23 @@ struct RankCellView: View {
                                 .imageScale(.medium)
                             
                             Text("0")
+                                .fontDesign(.rounded)
+                        }
+                        
+                        HStack(spacing: 4) {
+                            Image(systemName: "ellipsis.bubble.fill")
+                                .imageScale(.medium)
+                            
+                            Text("0")
+                                .fontDesign(.rounded)
+
                         }
                     }
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(.tertiary)
                     
                 }
-                .frame(height: frameHeight)
-                
-                .padding(8)
+                .frame(maxHeight: frameHeight - 8)
+                .padding(12)
                 Spacer()
                 
             }
@@ -144,6 +204,7 @@ struct RankCellView: View {
     }
 }
 
+// MARK: RankSeal
 struct RankSeal : View {
     
     @State var rank : Int
@@ -175,13 +236,12 @@ struct RankSeal : View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 48, height: 48)
-                        .foregroundStyle(bronzeGradient)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
                         .blendMode(.overlay)
                         .opacity(0.5)
                     
                     Text(String(rank))
                         .foregroundStyle(bronzeGradient)
-                        .blendMode(.multiply)
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
@@ -192,6 +252,7 @@ struct RankSeal : View {
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
+                        .blendMode(.multiply)
                     
                 case 2:
                     
@@ -212,7 +273,7 @@ struct RankSeal : View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 48, height: 48)
-                        .foregroundStyle(silverGradient)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
                         .blendMode(.overlay)
                         .opacity(0.5)
                     
@@ -230,6 +291,7 @@ struct RankSeal : View {
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
+                        .blendMode(.multiply)
                     
                 case 1:
                     
@@ -250,7 +312,7 @@ struct RankSeal : View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 48, height: 48)
-                        .foregroundStyle(goldGradient)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
                         .blendMode(.overlay)
                         .opacity(0.5)
                     
@@ -268,45 +330,56 @@ struct RankSeal : View {
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
-                    
+                        .blendMode(.multiply)
                     
                 default:
-                                            
-                        Image(systemName: "seal.fill")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                            .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
-                        
-                        Image(systemName: "seal")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                            .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
-                            .blendMode(.overlay)
-                        
-                        Image(systemName: "seal")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 48, height: 48)
-                            .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
-                            .blendMode(.overlay)
-                            .opacity(0.5)
+                    Image(systemName: "seal.fill")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
+                    
+                    Image(systemName: "seal")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
+                        .blendMode(.overlay)
+                    
+                    Image(systemName: "seal")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 48, height: 48)
+                        .foregroundStyle(LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0)))
+                        .blendMode(.overlay)
+                        .opacity(0.5)
                     
                     Text(String(rank))
-                        .foregroundStyle(Color("CharcoalGray"))
+                        .foregroundStyle(.gray.opacity(0.5))
                         .blendMode(.multiply)
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
                         .shadow(color: .white, radius: 8)
                     
+                }
+                
+            } else {
+                
+                ZStack {
+                    
+                    LinearGradient(colors: [Color.white, Color.clear], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0))
+                        .frame(width: 48, height: 48)
+                        .clipShape(Circle())
+                    
                     Text(String(rank))
-                        .foregroundStyle(Color.white)
+                        .foregroundStyle(.gray.opacity(0.5))
+                        .blendMode(.multiply)
                         .multilineTextAlignment(.center)
                         .font(.title2)
                         .fontWeight(.bold)
-                    
+                        .frame(width: 48)
+                        .shadow(color: .white, radius: 8)
                 }
                 
             }
@@ -316,11 +389,6 @@ struct RankSeal : View {
     }
 }
 
-#Preview {
-    
-    ZStack {
-        Color("CharcoalGray").opacity(0.08)
-        
-        RankView()
-    }
+#Preview{
+    RankCellView(rank: 1, frameHeight: 88)
 }

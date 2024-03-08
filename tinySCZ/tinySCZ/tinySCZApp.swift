@@ -11,7 +11,7 @@ import SwiftUI
 struct tinySCZApp: App {
     var body: some Scene {
         WindowGroup {
-            CommunityTabView()
+            ContentView()
         }
     }
 }

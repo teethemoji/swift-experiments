@@ -11,4 +11,3 @@ public let goldGradient = LinearGradient(colors: [Color("GoldenOlive"), Color("M
 public let silverGradient = LinearGradient(colors: [Color("CharcoalGray"), Color.gray, Color(.systemGray5)], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0))
 public let bronzeGradient = LinearGradient(colors: [Color.brown, Color.orange], startPoint: UnitPoint(x: 0.0, y: 0.0), endPoint: UnitPoint(x: 0.0, y: 1.0))
 
-

@@ -138,7 +138,7 @@ struct PinnedBubbleView : View {
                 }
             }
             .padding()
-            .background(Material.ultraThick)
+            .background(Color.white.opacity(0.75))
             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 12, height: 12)))
             .overlay{
                 RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))

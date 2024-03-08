@@ -13,8 +13,11 @@ struct ContentView: View {
     var body: some View {
         
         TabView {
-            RankView()
-                .padding(.horizontal, 16)
+            ZStack {
+                Color(uiColor: UIColor.systemGray6)
+                    .ignoresSafeArea()
+                ExploreTabView()
+            }
                 .tabItem {
                     
                     Label("Explore", systemImage: "bubbles.and.sparkles")
@@ -32,9 +35,8 @@ struct ContentView: View {
                     
                     Label("Search", systemImage: "sparkle.magnifyingglass")
                 }
-        }
-        
-    }
+        } // TabView
+    } // body
 }
 
 #Preview {
